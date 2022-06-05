@@ -1,0 +1,10 @@
+mat-card {
+    margin: 1rem 1rem;
+    flex: auto;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    align-items: center;
+}

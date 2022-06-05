@@ -1,0 +1,11 @@
+<div class="wrapper">
+    <header>
+        
+    </header>
+    <mat-nav-list>
+        <mat-list-item *ngFor="let link of links">
+            <mat-icon mat-list-icon color="primary">{{ link.icon }}</mat-icon>
+            <a mat-list-item [routerLink]="[link.urlPath]" routerLinkActive="router-link-active"> {{ link?.title }} </a>
+        </mat-list-item>
+    </mat-nav-list>
+</div>

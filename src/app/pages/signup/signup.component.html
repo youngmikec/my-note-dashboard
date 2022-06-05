@@ -1,0 +1,44 @@
+<mat-card role="banner" class="banner">
+</mat-card>
+
+<mat-card role="region" class="form">
+    <mat-card-title>
+        Create Account
+    </mat-card-title>
+    <mat-card-content>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>First Name</mat-label>
+                    <input matInput type="text" placeholder="first name" formControlName="first_name">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Last Name</mat-label>
+                    <input matInput type="text" placeholder="last name" formControlName="last_name">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput placeholder="email" formControlName="email">
+                    <mat-icon matPrefix>email</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input matInput type="password" placeholder="***" formControlName="password">
+                    <mat-icon matPrefix>lock</mat-icon>
+                </mat-form-field>
+            </div>
+            <div>
+                <p>Already have an account?
+                    <button mat-button color="primary" (click)="navigateToLogin($event)">Login</button> 
+                </p>
+                <button mat-raised-button color="primary" type="submit">Sign up</button>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <mat-card *ngFor="let note of notesArray; trackBy:trackByFunction">
+        <mat-card-title color="primay">
+            {{ note?.title || '--' }}
+        </mat-card-title>
+        <mat-card-subtitle>
+            {{ note?.created | date }}
+        </mat-card-subtitle>
+        <mat-card-content>
+            {{ note?.content }}
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-raised-button color="primary" (click)="getToDetail(note)">View</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
