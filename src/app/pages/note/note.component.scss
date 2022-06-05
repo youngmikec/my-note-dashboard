@@ -8,3 +8,16 @@ mat-card {
     grid-template-columns: auto auto auto auto;
     align-items: center;
 }
+
+.d-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.action-card {
+    position: absolute;
+    top: 25px;
+    right: 0;
+    width: max-content;
+    z-index: 3;
+}

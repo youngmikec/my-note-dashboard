@@ -1,7 +1,33 @@
+<mat-card>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="createNote()">Create Note</button>
+    </mat-card-actions>
+</mat-card>
+
+<br>
+<br>
+
+<h4 *ngIf="loading">Loading...</h4>
+
 <div class="wrapper">
     <mat-card *ngFor="let note of notesArray; trackBy:trackByFunction">
-        <mat-card-title color="primay">
+        <mat-card-title color="primay" class="d-flex">
             {{ note?.title || '--' }}
+            <span (click)="toggleShowAction(note.id)">
+                <mat-icon>more_vert</mat-icon>
+            </span>
+            <mat-card *ngIf="showAction && currentNoteId === note.id" class="action-card">
+                <mat-card-content>
+                    <mat-list role="list">
+                        <mat-list-item role="listitem">
+                            <button mat-flat-button (click)="goToEdit(note)">Edit</button>
+                        </mat-list-item>
+                        <mat-list-item role="listitem">
+                            <button mat-flat-button color="warn" (click)="openDialog('0ms', '0ms', note)">Delete</button>
+                        </mat-list-item>
+                      </mat-list>
+                </mat-card-content>
+            </mat-card>
         </mat-card-title>
         <mat-card-subtitle>
             {{ note?.created | date }}
@@ -13,4 +39,8 @@
             <button mat-raised-button color="primary" (click)="getToDetail(note)">View</button>
         </mat-card-actions>
     </mat-card>
+</div>
+
+<div style="display: none;">
+    <app-note-delete-dialog (onDelete)="handleOnDelete($event)"></app-note-delete-dialog>
 </div>

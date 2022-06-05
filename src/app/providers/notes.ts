@@ -14,24 +14,10 @@ export class Notes {
     constructor(
         private apiService: ApiService
     ){}
-
-    private loadFromMemory(): NOTES_RESPONSE {
-        return {
-            status: 'successful',
-            message: `${DB_NOTES.length} notes found`,
-            per_page: 10,
-            total: DB_NOTES.length,
-            has_next: false,
-            data: DB_NOTES
-        }
-    }
     
     retrieveNotes(): Observable<NOTES_RESPONSE> {
         return this.apiService.getApi(`${this.url}/note`).pipe(
             map((res: NOTES_RESPONSE) => {
-                if(res === null || undefined){
-                    return this.loadFromMemory();
-                }
                 return res;
             }),
         )

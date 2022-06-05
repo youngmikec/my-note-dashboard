@@ -9,13 +9,7 @@ import { catchError, map, Observable, retry, throwError } from 'rxjs';
 export class ApiService {
 
     option: any = {
-        headers: new HttpHeaders({
-            "Content_Type": "application/json",
-            "withCredentials" : "true",
-            "proxy": "https://note-xyz.herokuapp.com",
-            "Access-Control-Allow-Origin": "https://mynote-dashboard.netlify.app",
-            "Cookie": "auth=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MzQsImV4cGlyZXMiOnRydWUsImV4cGlyYXRpb25fZGF0ZSI6IjIwMjItMDYtMDUgMTQ6MDU6MjYuNDY2MTU0In0.9dKKYQh0gFbMxWhpsR6XrFEUBIiFYQKeSOuN30gy49E;path=/;SameSite=None;Secure;"
-        })
+        withCredentials : true,
     }
 
     constructor( private http: HttpClient){}

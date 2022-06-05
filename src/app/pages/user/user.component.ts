@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { DB_USERS, USER, USER_RESPONSE } from 'src/app/models';
-import { Users } from 'src/app/providers';
+import { USER, USER_RESPONSE } from '../../models';
+import { Users } from '../../providers';
 
 @Component({
   selector: 'app-user',
@@ -36,9 +36,7 @@ export class UserComponent implements OnInit {
       },
       error: (error: any) => {
         this.loading = false;
-        // an alternative if the request is blocked by CORS policy
-        this.user = DB_USERS[0]
-        console.log('error => ', error);
+        console.log(error);
       }
     })
   }
